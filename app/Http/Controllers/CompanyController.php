@@ -130,6 +130,7 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         $company = Company::findOrFail($id);
+        Storage::delete($company->logo);
         $company->delete();
 
         return redirect()->route('companies.index');
