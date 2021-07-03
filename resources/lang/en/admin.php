@@ -13,4 +13,7 @@ return [
     'cancel' => 'Cancel',
     'update' => 'Update',
     'info' => 'Detailed info',
+    'en' => 'English',
+    'ru' => 'Russian',
+    'uk' => 'Ukrainian'
 ];

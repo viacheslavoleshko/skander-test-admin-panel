@@ -20,6 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('locale/{locale}', function ($locale) {
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+})->name('locale');
+
 Auth::routes(['register' => false]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -16,14 +16,23 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
-
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('admin.logout') }}</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-          </form>
-        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ session()->has('locale') ? __('admin.' . session('locale')) :  __('admin.uk')}}</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown09">
+                <a class="dropdown-item" href="{{ route('locale', ['locale' => 'en']) }}">{{ __('admin.en') }}</a>
+                <a class="dropdown-item" href="{{ route('locale', ['locale' => 'ru']) }}">{{ __('admin.ru') }}</a>
+                <a class="dropdown-item" href="{{ route('locale', ['locale' => 'uk']) }}">{{ __('admin.uk') }}</a>
+          </div>
+      </li>
+
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('admin.logout') }}</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+        </form>
+      </li>
     </ul>
     </nav>
     <!-- /.navbar -->
