@@ -30,7 +30,7 @@ class CompanyAdded extends Mailable
      */
     public function build()
     {
-        $subject = "AdminLTE | New company was created!";
+        $subject = __('email.subject');
 
         return $this->subject($subject)
         ->view('emails.companies.company-added');
