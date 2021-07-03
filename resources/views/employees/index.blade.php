@@ -82,12 +82,18 @@
     </div>
     <!-- /.card -->
     <div>
-        <ul style="display: flex">
+        <ul class="pagination">  
+            <li class="page-item {{ ($employees->currentPage() == 1) ? ' disabled' : '' }}">
+                <a class="page-link" href="{{ $employees->url($employees->currentPage()-1) }}">Previous</a>
+            </li>
             @for ($i = 1; $i <= $employees->lastPage(); $i++)
-                <li class="{{ ($employees->currentPage() == $i) ? ' active' : '' }}" style="list-style-type: none; padding: 10px; border: solid 1px; background-color: white; line-height: 0">
+                <li class="page-link {{ ($employees->currentPage() == $i) ? ' active' : '' }}">
                     <a href="{{ $employees->url($i) }}">{{ $i }}</a>
                 </li>
             @endfor
+            <li class="page-item {{ ($employees->currentPage() == $employees->lastPage()) ? ' disabled' : '' }}">
+                <a class="page-link" href="{{ $employees->url($employees->currentPage()+1) }}">Next</i></a>
+            </li>
         </ul>
     </div>
 
