@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([ // php artisan migrate:refresh --seed
+            UserSeeder::class, // php artisan db:seed --class=UserSeeder
+            CompanySeeder::class, // php artisan db:seed --class=CompanySeeder
+            EmployeeSeeder::class, // php artisan db:seed --class=EmployeeSeeder
+        ]);
     }
 }
