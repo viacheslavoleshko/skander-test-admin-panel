@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Mail\CompanyAdded;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCompany;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
@@ -57,6 +60,8 @@ class CompanyController extends Controller
             $company->logo = $path;
         }
         $company->save();
+
+        Mail::to(Auth::user())->send(new CompanyAdded($company));
 
         return redirect()->back()->withSuccess('Company is sucsess added!');
     }

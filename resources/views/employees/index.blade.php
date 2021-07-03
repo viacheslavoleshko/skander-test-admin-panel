@@ -5,7 +5,7 @@
         <a class="btn btn-info btn-sm" href="{{ route('employees.create') }}">
             <i class="fas fa-plus">
             </i>
-            Create new employee
+            {{ __('employees.create') }}
         </a>
     </section>
 
@@ -15,7 +15,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Companies</h3>
+        <h3 class="card-title">{{ __('employees.employees')}}</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -30,19 +30,19 @@
         <table class="table table-striped projects">
             <thead>
                 <tr>
-                    <th style="width: 20%">
-                        Firstname
+                    <th style="width: 10%">
+                        {{ __('employees.firstname')}}
+                    </th>
+                    <th style="width: 10%">
+                        {{ __('employees.lastname')}}
                     </th>
                     <th style="width: 20%">
-                        Lastname
+                        {{ __('employees.email')}}
                     </th>
                     <th style="width: 20%">
-                        Email
+                        {{ __('employees.phone')}}
                     </th>
-                    <th style="width: 20%">
-                        Phone
-                    </th>
-                    <th style="width: 20%">
+                    <th style="width: 40%">
                     </th>
                 </tr>
             </thead>
@@ -58,18 +58,18 @@
                             <a class="btn btn-primary btn-sm" href="{{ route('employees.show', ['employee' => $employee->id]) }}">
                                 <i class="fas fa-folder">
                                 </i>
-                                View
+                                {{ __('admin.view') }}
                             </a>
                             <a class="btn btn-info btn-sm" href="{{ route('employees.edit', ['employee' => $employee->id]) }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
-                                Edit
+                                {{ __('admin.edit') }}
                             </a>
                             <form method="POST" id="delete-form" action="{{ route('employees.destroy', ['employee' => $employee->id]) }}" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 
-                                <button type="submit" class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i> {{ __('Delete') }}</button>
+                                <button type="submit" class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i> {{ __('admin.delete') }}</button>
                             </form>
                         </td>
                     </tr>

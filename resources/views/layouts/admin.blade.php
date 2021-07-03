@@ -19,7 +19,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+          <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('admin.logout') }}</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -41,7 +41,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="info">
-            <a href="#" class="d-block">Welcome, {{ Auth::user()->name }}</a>
+            <a href="#" class="d-block">{{ __('admin.welcome', ['name' => Auth::user()->name]) }}</a> {{-- Welcome, {{ Auth::user()->name }} --}}
           </div>
         </div>
 
@@ -54,7 +54,7 @@
               <a href="{{ route('companies.index') }}" class="nav-link {{ Route::currentRouteNamed('companies.*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Companies
+                  {{ __('admin.companies') }}
                 </p>
               </a>
             </li>
@@ -62,7 +62,7 @@
               <a href="{{ route('employees.index') }}" class="nav-link {{ Route::currentRouteNamed('employees.*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Employees
+                  {{ __('admin.employees') }}
                 </p>
               </a>
             </li>
@@ -84,24 +84,14 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-      <div class="p-3">
-        <h5>Title</h5>
-        <p>Sidebar content</p>
-      </div>
-    </aside>
-    <!-- /.control-sidebar -->
-
     <!-- Main Footer -->
     <footer class="main-footer">
       <!-- To the right -->
       <div class="float-right d-none d-sm-inline">
-        Anything you want
+        {{ __('admin.footer') }}
       </div>
       <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> {{ __('admin.rights') }}.
     </footer>
   </div>
   <!-- ./wrapper -->

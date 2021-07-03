@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Company details</h1>
+                    <h1>{{ __('employees.details') }}</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -24,7 +24,7 @@
                         <div class="col-12">
                         <h4>
                             <i class="fas fa-user-circle"></i> {{ $employee->firstname }} {{ $employee->lastname }}
-                            <small class="float-right">Employed at: {{ $employee->created_at->isoFormat('MMMM D, YYYY') }}</small>
+                            <small class="float-right">{{ __('employees.employed') }}: {{ $employee->created_at->isoFormat('MMMM D, YYYY') }}</small>
                         </h4>
                         </div>
                         <!-- /.col -->
@@ -33,16 +33,16 @@
                     <div class="row invoice-info mb-5">
                         <div class="col-sm-4 invoice-col">
                         <address>
-                            <strong>Detail info</strong><br>
-                            Firstname: {{ $employee->firstname }}<br>
-                            Lastname: {{ $employee->lastname }}<br>
+                            <strong>{{ __('admin.info') }}</strong><br>
+                            {{ __('employees.firstname') }}: {{ $employee->firstname }}<br>
+                            {{ __('employees.lastname') }}: {{ $employee->lastname }}<br>
                             @if (isset( $employee->email))
-                                Email: {{ $employee->email }}<br>
+                                {{ __('employees.email') }}: {{ $employee->email }}<br>
                             @endif
                             @if (isset( $employee->phone))
-                                Phone: {{ $employee->phone }}<br>
+                                {{ __('employees.phone') }}: {{ $employee->phone }}<br>
                             @endif
-                            Employed in company:  <strong>{{ $employee->company->name }}</strong>
+                                {{ __('employees.employed-in') }}:  <strong>{{ $employee->company->name }}</strong>
                         </address>
                         </div>
                     </div>

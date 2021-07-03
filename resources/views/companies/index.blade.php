@@ -5,7 +5,7 @@
         <a class="btn btn-info btn-sm" href="{{ route('companies.create') }}">
             <i class="fas fa-plus">
             </i>
-            Create new company
+            {{ __('companies.create') }}
         </a>
     </section>
 
@@ -15,7 +15,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Companies</h3>
+        <h3 class="card-title">{{ __('admin.companies') }}</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -31,13 +31,13 @@
             <thead>
                 <tr>
                     <th style="width: 20%">
-                        Name
+                        {{ __('companies.name') }}
                     </th>
                     <th style="width: 20%">
-                        Website
+                        {{ __('companies.website') }}
                     </th>
                     <th style="width: 20%">
-                        Email
+                        {{ __('companies.email') }}
                     </th>
                     <th style="width: 20%">
                     </th>
@@ -54,18 +54,18 @@
                             <a class="btn btn-primary btn-sm" href="{{ route('companies.show', ['company' => $company->id]) }}">
                                 <i class="fas fa-folder">
                                 </i>
-                                View
+                                {{ __('admin.view') }}
                             </a>
                             <a class="btn btn-info btn-sm" href="{{ route('companies.edit', ['company' => $company->id]) }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
-                                Edit
+                                {{ __('admin.edit') }}
                             </a>
                             <form method="POST" id="delete-form" action="{{ route('companies.destroy', ['company' => $company->id]) }}" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 
-                                <button type="submit" class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i> {{ __('Delete') }}</button>
+                                <button type="submit" class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i> {{ __('admin.delete') }}</button>
                             </form>
                         </td>
                     </tr>

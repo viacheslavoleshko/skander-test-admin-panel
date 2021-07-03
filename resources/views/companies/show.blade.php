@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Company details</h1>
+                    <h1>{{ __('companies.details') }}</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -24,7 +24,7 @@
                         <div class="col-12">
                         <h4>
                             <i class="fas fa-globe"></i> {{ $company->name }}
-                            <small class="float-right">Created: {{ $company->created_at->isoFormat('MMMM D, YYYY') }}</small>
+                            <small class="float-right">{{ __('companies.created') }}: {{ $company->created_at->isoFormat('MMMM D, YYYY') }}</small>
                         </h4>
                         </div>
                         <!-- /.col -->
@@ -38,11 +38,11 @@
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
                         <address>
-                            <strong>Detail info</strong><br>
+                            <strong>{{ __('admin.info') }}</strong><br>
                             @if (isset( $company->website))
-                                Website: {{ $company->website }}<br>
+                                {{ __('companies.website') }}: {{ $company->website }}<br>
                             @endif
-                            Email: {{ $company->email }}
+                                {{ __('companies.email') }}: {{ $company->email }}
                         </address>
                         </div>
                     </div>
@@ -55,10 +55,10 @@
                                 <thead>
                                     <tr>
                                     <th>ID</th>
-                                    <th>Employee</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Employeed at</th>
+                                    <th>{{ __('employees.employee') }}</th>
+                                    <th>{{ __('employees.email') }}</th>
+                                    <th>{{ __('employees.phone') }}</th>
+                                    <th>{{ __('employees.employed') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

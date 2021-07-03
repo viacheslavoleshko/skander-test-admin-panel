@@ -14,12 +14,12 @@
             <!-- /.login-logo -->
             <div class="card">
                 <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">{{ __('login.start') }}</p>
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('login.email') }}">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -32,7 +32,7 @@
                     </div>
                     </div>
                     <div class="input-group mb-3">
-                    <input type="password" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+                    <input type="password" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('login.password') }}">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -49,13 +49,13 @@
                         <div class="icheck-primary">
                         <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label for="remember">
-                            Remember Me
+                            {{ __('login.remember') }}
                         </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('login.sign') }}</button>
                     </div>
                     <!-- /.col -->
                     </div>
