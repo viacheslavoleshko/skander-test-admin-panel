@@ -15,5 +15,7 @@ return [
     'info' => 'Detailed info',
     'en' => 'English',
     'ru' => 'Russian',
-    'uk' => 'Ukrainian'
+    'uk' => 'Ukrainian',
+    'next' => 'Next',
+    'previous' => 'Previous',
 ];

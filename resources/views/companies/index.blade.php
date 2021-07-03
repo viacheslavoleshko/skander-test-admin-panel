@@ -80,7 +80,7 @@
     <div>
         <ul class="pagination">  
             <li class="page-item {{ ($companies->currentPage() == 1) ? ' disabled' : '' }}">
-                <a class="page-link" href="{{ $companies->url($companies->currentPage()-1) }}">Previous</a>
+                <a class="page-link" href="{{ $companies->url($companies->currentPage()-1) }}">{{ __('admin.previous') }}</a>
             </li>
             @for ($i = 1; $i <= $companies->lastPage(); $i++)
                 <li class="page-link {{ ($companies->currentPage() == $i) ? ' active' : '' }}">
@@ -88,7 +88,7 @@
                 </li>
             @endfor
             <li class="page-item {{ ($companies->currentPage() == $companies->lastPage()) ? ' disabled' : '' }}">
-                <a class="page-link" href="{{ $companies->url($companies->currentPage()+1) }}">Next</i></a>
+                <a class="page-link" href="{{ $companies->url($companies->currentPage()+1) }}">{{ __('admin.next') }}</i></a>
             </li>
         </ul>
     </div>
