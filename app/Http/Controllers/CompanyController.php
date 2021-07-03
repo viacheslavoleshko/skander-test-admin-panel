@@ -63,7 +63,7 @@ class CompanyController extends Controller
 
         Mail::to(Auth::user())->send(new CompanyAdded($company));
 
-        return redirect()->back()->withSuccess('Company is sucsess added!');
+        return redirect()->route('companies.show', ['company' => $company->id]);
     }
 
     /**
